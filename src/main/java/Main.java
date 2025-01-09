@@ -1,5 +1,6 @@
 package main.java;
 
+import main.java.common.AbstractService;
 import main.java.y2024.Y2024D3Service;
 import java.time.Instant;
 
@@ -24,9 +25,9 @@ public class Main {
         callYearXDayYService(2022, 1);
 
         callYearXDayYService(2023, 1);
-        /*
+
         callYearXDayYService(2024, 1);
-        callYearXDayYService(2024, 2);
+        /*callYearXDayYService(2024, 2);
         callYearXDayYService(2024, 3);
         //stream way from Gille
         callYear2024Day3();
@@ -38,14 +39,12 @@ public class Main {
     private static void callYearXDayYService(int year, int day) throws Exception {
 
         Class<?> yearDayServiceClass = Class.forName("main.java.y" + year + ".Y" + year + "D" + day + "Service");
-        Object instance = yearDayServiceClass.getConstructor().newInstance();
+        AbstractService instance = (AbstractService) yearDayServiceClass.getConstructor().newInstance();
         long start1 = Instant.now().toEpochMilli();
-        System.out.println("Year " + year + ", Day " + day + ", Part 1, result : "
-                + (int) yearDayServiceClass.getDeclaredMethod("getFirstResult").invoke(instance)
+        System.out.println("Year " + year + ", Day " + day + ", Part 1, result : " + instance.getFirstResult()
                 + " - Duration : " + (Instant.now().toEpochMilli() - start1) + " ms");
         long start2 = Instant.now().toEpochMilli();
-        System.out.println("Year " + year + ", Day " + day + ", Part 2, result : "
-                + (int) yearDayServiceClass.getDeclaredMethod("getSecondResult").invoke(instance)
+        System.out.println("Year " + year + ", Day " + day + ", Part 2, result : " + instance.getSecondResult()
                 + " - Duration : " + (Instant.now().toEpochMilli() - start2) + " ms");
     }
 
