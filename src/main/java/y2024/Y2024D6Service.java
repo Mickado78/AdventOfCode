@@ -12,7 +12,7 @@ import static main.java.common.CommonService.getDataMatrix;
 public class Y2024D6Service extends AbstractService {
 
     @Override
-    public int getFirstResult() throws Exception {
+    public String getFirstResult() throws Exception {
 
         Character[][] matrix = getDataMatrix(2024, 6);
         int[] initialPosition = getInitialPosition(matrix);
@@ -21,12 +21,12 @@ public class Y2024D6Service extends AbstractService {
         getUpPositions(initialPosition, matrix, positionsSet, new HashSet<>(), new HashSet<>(),
                 new Position(0,0));
 
-        return positionsSet.size();
+        return String.valueOf(positionsSet.size());
     }
 
     //1704
     @Override
-    public int getSecondResult() throws Exception {
+    public String getSecondResult() throws Exception {
 
         Character[][] matrix = getDataMatrix(2024, 6);
         int[] initialPosition = getInitialPosition(matrix);
@@ -46,7 +46,7 @@ public class Y2024D6Service extends AbstractService {
                     pos);
         }
         obstructionPositionsSet.remove(new Position(initialPosition[0], initialPosition[1]));
-        return obstructionPositionsSet.size();
+        return String.valueOf(obstructionPositionsSet.size());
     }
 
     private int[] getInitialPosition(Character[][] matrix) {

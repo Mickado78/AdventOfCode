@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 public class Y2016D1Service extends AbstractService {
 
     @Override
-    public int getFirstResult() throws Exception {
+    public String getFirstResult() throws Exception {
 
         final List<String> dataList = Arrays.stream(getData().split(",")).toList();
         Position position = new Position(0, 0);
@@ -38,11 +38,11 @@ public class Y2016D1Service extends AbstractService {
                 lastDirection = "S";
             }
         }
-        return Math.abs(position.x()) + Math.abs(position.y());
+        return String.valueOf(Math.abs(position.x()) + Math.abs(position.y()));
     }
 
     @Override
-    public int getSecondResult() throws Exception {
+    public String getSecondResult() throws Exception {
 
         final List<String> dataList = Arrays.stream(getData().split(",")).toList();
         Set<Position> positionSet = new HashSet<>();
@@ -115,7 +115,7 @@ public class Y2016D1Service extends AbstractService {
             }
         }
 
-        return Math.abs(twice.x()) + Math.abs(twice.y());
+        return String.valueOf(Math.abs(twice.x()) + Math.abs(twice.y()));
     }
 
     private String getData() throws Exception {

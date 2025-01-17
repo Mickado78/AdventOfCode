@@ -11,14 +11,14 @@ import static main.java.common.CommonService.getDataList;
 public class Y2024D2Service extends AbstractService {
 
     @Override
-    public int getFirstResult() throws Exception {
+    public String getFirstResult() throws Exception {
 
         List<String> data = getData();
-        return data.size() - getUnsafeReports(data).size();
+        return String.valueOf(data.size() - getUnsafeReports(data).size());
     }
 
     @Override
-    public int getSecondResult() throws Exception {
+    public String getSecondResult() throws Exception {
 
         List<String> data = getData();
         List<Integer> unSafeReportIndexes = getUnsafeReports(data);
@@ -46,7 +46,7 @@ public class Y2024D2Service extends AbstractService {
                 }
             }
         }
-        return data.size() - unSafeReportIndexes.size() + singleBadLevel;
+        return String.valueOf(data.size() - unSafeReportIndexes.size() + singleBadLevel);
     }
 
     private List<String> getData() throws Exception {

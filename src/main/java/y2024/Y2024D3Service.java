@@ -15,14 +15,14 @@ import static main.java.common.CommonService.getDataString;
 public class Y2024D3Service extends AbstractService {
 
     @Override
-    public int getFirstResult() throws Exception {
-        return calculateMulSum(getData());
+    public String getFirstResult() throws Exception {
+        return String.valueOf(calculateMulSum(getData()));
     }
 
     @Override
-    public int getSecondResult() throws Exception {
-        return calculateMulSum(getData()
-                .replaceAll("don't\\(\\).*?do\\(\\)|don't\\(\\).*(?!.*do\\(\\))",""));
+    public String getSecondResult() throws Exception {
+        return String.valueOf(calculateMulSum(getData()
+                .replaceAll("don't\\(\\).*?do\\(\\)|don't\\(\\).*(?!.*do\\(\\))","")));
     }
 
     public int getResultUsingStream() throws Exception {

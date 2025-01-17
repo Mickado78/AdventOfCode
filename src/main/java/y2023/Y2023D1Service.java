@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class Y2023D1Service extends AbstractService {
 
     @Override
-    public int getFirstResult() throws Exception {
+    public String getFirstResult() throws Exception {
 
         int result = 0;
         final List<String> dataList = getDataList();
@@ -31,11 +31,11 @@ public class Y2023D1Service extends AbstractService {
             }
         }
 
-        return result;
+        return String.valueOf(result);
     }
 
     @Override
-    public int getSecondResult() throws Exception {
+    public String getSecondResult() throws Exception {
 
         int result = 0;
         final List<String> dataList = getDataList();
@@ -57,7 +57,7 @@ public class Y2023D1Service extends AbstractService {
             }
         }
 
-        return result;
+        return String.valueOf(result);
     }
 
     private List<String> getDataList() throws Exception {

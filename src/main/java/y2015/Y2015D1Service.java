@@ -6,14 +6,14 @@ import main.java.common.CommonService;
 public class Y2015D1Service extends AbstractService {
 
     @Override
-    public int getFirstResult() throws Exception {
+    public String getFirstResult() throws Exception {
         final String data = getData();
-        return data.length() - data.replace("(", "").length()
-                - (data.length() - data.replace(")", "").length());
+        return String.valueOf(data.length() - data.replace("(", "").length()
+                - (data.length() - data.replace(")", "").length()));
     }
 
     @Override
-    public int getSecondResult() throws Exception {
+    public String getSecondResult() throws Exception {
         final String data = getData();
         int floor = 0;
         int position = 0;
@@ -28,7 +28,7 @@ public class Y2015D1Service extends AbstractService {
                 break;
             }
         }
-        return position;
+        return String.valueOf(position);
     }
 
     private String getData() throws Exception {

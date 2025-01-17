@@ -10,12 +10,12 @@ import java.util.Set;
 public class Y2018D1Service extends AbstractService {
 
     @Override
-    public int getFirstResult() throws Exception {
-        return getDataList().stream().map(Integer::parseInt).reduce(Integer::sum).orElse(0);
+    public String getFirstResult() throws Exception {
+        return String.valueOf(getDataList().stream().map(Integer::parseInt).reduce(Integer::sum).orElse(0));
     }
 
     @Override
-    public int getSecondResult() throws Exception {
+    public String getSecondResult() throws Exception {
         final List<String> dataList = getDataList();
         int frequency = 0;
         final Set<Integer> frequencySet = new HashSet<>();
@@ -29,7 +29,7 @@ public class Y2018D1Service extends AbstractService {
             }
         }
 
-        return frequency;
+        return String.valueOf(frequency);
     }
 
     private List<String> getDataList() throws Exception {

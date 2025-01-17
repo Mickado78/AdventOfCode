@@ -6,7 +6,7 @@ import main.java.common.CommonService;
 public class Y2017D1Service extends AbstractService {
 
     @Override
-    public int getFirstResult() throws Exception {
+    public String getFirstResult() throws Exception {
 
         int result = 0;
         final String data = getData();
@@ -17,11 +17,11 @@ public class Y2017D1Service extends AbstractService {
                 result += Character.getNumericValue(data.charAt(i));
             }
         }
-        return result;
+        return String.valueOf(result);
     }
 
     @Override
-    public int getSecondResult() throws Exception {
+    public String getSecondResult() throws Exception {
 
         int result = 0;
         final String data = getData();
@@ -32,7 +32,7 @@ public class Y2017D1Service extends AbstractService {
                 result += Character.getNumericValue(data.charAt(i)) * 2;
             }
         }
-        return result;
+        return String.valueOf(result);
     }
 
     private String getData() throws Exception {

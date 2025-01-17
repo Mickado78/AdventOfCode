@@ -13,17 +13,17 @@ import static main.java.common.CommonService.getDataList;
 public class Y2024D5Service extends AbstractService {
 
     @Override
-    public int getFirstResult() throws Exception {
+    public String getFirstResult() throws Exception {
 
         final List<List<String>> inputLists = getInputLists();
         final List<List<String>> pagesList = getSeparatedPagesLists(getUpdatesOKorKO(inputLists.get(1),
                 inputLists.getFirst(), true));
 
-        return getSumOfMiddlePages(pagesList);
+        return String.valueOf(getSumOfMiddlePages(pagesList));
     }
 
     @Override
-    public int getSecondResult() throws Exception {
+    public String getSecondResult() throws Exception {
 
         final List<List<String>> inputLists = getInputLists();
         final List<List<String>> pagesList = getSeparatedPagesLists(getUpdatesOKorKO(inputLists.get(1),
@@ -33,7 +33,7 @@ public class Y2024D5Service extends AbstractService {
             reOrderPages(pages, inputLists.getFirst());
         }
 
-        return getSumOfMiddlePages(pagesList);
+        return String.valueOf(getSumOfMiddlePages(pagesList));
     }
 
     private List<List<String>> getInputLists() throws Exception {

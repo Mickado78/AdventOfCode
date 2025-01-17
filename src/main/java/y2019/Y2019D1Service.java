@@ -9,12 +9,13 @@ import java.util.function.Function;
 public class Y2019D1Service extends AbstractService {
 
     @Override
-    public int getFirstResult() throws Exception {
-        return getDataList().stream().map(s -> Integer.parseInt(s) / 3 - 2).reduce(Integer::sum).orElse(0);
+    public String getFirstResult() throws Exception {
+        return String.valueOf(getDataList().stream().map(s -> Integer.parseInt(s) / 3 - 2).reduce(Integer::sum)
+                .orElse(0));
     }
 
     @Override
-    public int getSecondResult() throws Exception {
+    public String getSecondResult() throws Exception {
 
         final Function<String, Integer> calculate = s -> {
             int fuel = calculateFuel(Integer.parseInt(s));
@@ -26,7 +27,7 @@ public class Y2019D1Service extends AbstractService {
             return result;
         };
 
-        return getDataList().stream().map(calculate).reduce(Integer::sum).orElse(0);
+        return String.valueOf(getDataList().stream().map(calculate).reduce(Integer::sum).orElse(0));
     }
 
     private List<String> getDataList() throws Exception {

@@ -8,7 +8,7 @@ import java.util.List;
 public class Y2020D1Service extends AbstractService {
 
     @Override
-    public int getFirstResult() throws Exception {
+    public String getFirstResult() throws Exception {
 
         int result = 0;
         List<String> dataList = getDataList();
@@ -25,11 +25,11 @@ public class Y2020D1Service extends AbstractService {
                 break;
             }
         }
-        return result;
+        return String.valueOf(result);
     }
 
     @Override
-    public int getSecondResult() throws Exception {
+    public String getSecondResult() throws Exception {
 
         int result = 0;
         List<String> dataList = getDataList();
@@ -55,7 +55,7 @@ public class Y2020D1Service extends AbstractService {
                 break;
             }
         }
-        return result;
+        return String.valueOf(result);
     }
 
     private List<String> getDataList() throws Exception {
